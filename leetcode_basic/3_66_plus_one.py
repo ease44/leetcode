@@ -17,5 +17,19 @@ def test(digits=None):
     return t
 
 
+def test2(digits=None):
+    carry = 1
+    for i in range(len(digits)-1, -1, -1):
+        digits[i] += carry
+        if digits[i] < 10:
+            return digits
+        else:
+            digits[i] = 0
+    if carry == 1:
+        digits.insert(0, 1)
+    return digits
+
+
 if __name__ == '__main__':
     print(test([1, 2, 3]))
+    print(test2([9, 9, 9]))
